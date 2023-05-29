@@ -4,6 +4,7 @@
     {
         public string Name { get; set; }
         public int Id { get; set; }
+        public ICollection<Job> Jobs { get; set; } = new List<Job>();
 
         public Company() { }
 

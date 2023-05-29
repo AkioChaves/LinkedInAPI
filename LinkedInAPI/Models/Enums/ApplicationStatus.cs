@@ -1,6 +1,6 @@
 ﻿namespace LinkedInAPI.Models.Enums
 {
-    public enum ApplicationStatus
+    public enum ApplicationStatus : int
     {
         Unsent,
         Sent,

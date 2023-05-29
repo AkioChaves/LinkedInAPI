@@ -14,6 +14,7 @@ namespace LinkedInAPI.Data
         {
         }
 
-        public DbSet<LinkedInAPI.Models.Company> Company { get; set; } = default!;
+        public DbSet<Company> Company { get; set; } = default!;
+        public DbSet<Job> Job { get; set; } = default!;
     }
 }
