@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using LinkedInAPI.Data;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<LinkedInAPIContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("LinkedInAPIContext") ?? throw new InvalidOperationException("Connection string 'LinkedInAPIContext' not found.")));
+    options.UseMySQL(builder.Configuration.GetConnectionString("LinkedInAPIContext") ?? throw new InvalidOperationException("Connection string 'LinkedInAPIContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
