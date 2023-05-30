@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using LinkedInAPI.Data;
+using LinkedInAPI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<LinkedInAPIContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("LinkedInAPIContext") ?? throw new InvalidOperationException("Connection string 'LinkedInAPIContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<JobService>();
 
 var app = builder.Build();
 

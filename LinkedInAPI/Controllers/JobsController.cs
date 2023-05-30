@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LinkedInAPI.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LinkedInAPI.Controllers
 {
     public class JobsController : Controller
     {
-        public IActionResult Index()
+        private readonly JobService _jobService;
+
+        public JobsController(JobService jobService)
         {
-            return View();
+            _jobService = jobService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var list = await _jobService.FindAllAsync();
+            return View(list);
         }
     }
 }
