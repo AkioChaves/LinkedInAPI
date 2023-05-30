@@ -2,7 +2,7 @@
 {
     public enum ApplicationStatus : int
     {
-        Unsent,
+        Open,
         Sent,
         Closed
     }
