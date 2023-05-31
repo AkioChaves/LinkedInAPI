@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LinkedInAPI.Migrations
 {
     [DbContext(typeof(LinkedInAPIContext))]
-    [Migration("20230529231808_OtherEntity")]
-    partial class OtherEntity
+    [Migration("20230531171039_Job")]
+    partial class Job
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,31 +44,36 @@ namespace LinkedInAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Benefits")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("CompanyId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Function")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Local")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("PostedDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Requirements")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<double>("Salary")
                         .HasColumnType("double");
 
                     b.Property<string>("Shipping")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("ID");
 

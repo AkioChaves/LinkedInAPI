@@ -17,5 +17,20 @@ namespace LinkedInAPI.Controllers
             var list = await _jobService.FindAllAsync();
             return View(list);
         }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _jobService.FindByIdAsync(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
     }
 }

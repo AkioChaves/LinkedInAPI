@@ -6,7 +6,7 @@ namespace LinkedInAPI.Models
     {
         public int ID { get; set; }
         public Company Company { get; set; }
-        public string Function { get; set; }
+        public string Title { get; set; }
         public DateTime PostedDate { get; set; }
         public double Salary { get; set; }
         public string Benefits { get; set; }
@@ -17,12 +17,12 @@ namespace LinkedInAPI.Models
 
         public Job() { }
 
-        public Job(int id, Company company, string function, DateTime postedDate, double salary, string benefits,
+        public Job(int id, Company company, string title, DateTime postedDate, double salary, string benefits,
         ApplicationStatus status, string requirements, string local, string shipping)
         {
             ID = id;
             Company = company;
-            Function = function;
+            Title = title;
             PostedDate = postedDate;
             Salary = salary;
             Benefits = benefits;

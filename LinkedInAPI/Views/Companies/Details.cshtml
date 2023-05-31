@@ -1,24 +1,46 @@
 ﻿@model LinkedInAPI.Models.Company
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Html.DisplayNameFor(model => model.Name);
 }
 
-<h1>Details</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div>
-    <h4>Company</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-    </dl>
+    @if (Model != null)
+    {
+        @foreach (var job in Model.Jobs)
+        {
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => job.Title)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => job.Title)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => job.Local)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => job.Local)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => job.Salary)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => job.Salary)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => job.Benefits)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => job.Benefits)
+                </dd>
+            </dl>
+        }
+    }
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

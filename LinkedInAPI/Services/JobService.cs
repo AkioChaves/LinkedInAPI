@@ -1,6 +1,7 @@
 ﻿using LinkedInAPI.Data;
 using LinkedInAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace LinkedInAPI.Services
 {
@@ -15,7 +16,12 @@ namespace LinkedInAPI.Services
 
         public async Task<List<Job>> FindAllAsync()
         {
-            return await _context.Job.ToListAsync();
+            return await _context.Job.OrderBy(x => x.PostedDate).ToListAsync();
+        }
+
+        public async Task<Job> FindByIdAsync(int id)
+        {
+            return _context.Job.Include(obj => obj.Company).FirstOrDefault(obj => obj.ID == id);
         }
     }
 }

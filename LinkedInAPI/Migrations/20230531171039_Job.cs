@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace LinkedInAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class OtherEntity : Migration
+    public partial class Job : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,14 +19,14 @@ namespace LinkedInAPI.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     CompanyId = table.Column<int>(type: "int", nullable: false),
-                    Function = table.Column<string>(type: "longtext", nullable: true),
+                    Title = table.Column<string>(type: "longtext", nullable: false),
                     PostedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Salary = table.Column<double>(type: "double", nullable: false),
-                    Benefits = table.Column<string>(type: "longtext", nullable: true),
+                    Benefits = table.Column<string>(type: "longtext", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    Requirements = table.Column<string>(type: "longtext", nullable: true),
-                    Local = table.Column<string>(type: "longtext", nullable: true),
-                    Shipping = table.Column<string>(type: "longtext", nullable: true)
+                    Requirements = table.Column<string>(type: "longtext", nullable: false),
+                    Local = table.Column<string>(type: "longtext", nullable: false),
+                    Shipping = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
