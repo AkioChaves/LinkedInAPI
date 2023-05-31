@@ -36,7 +36,7 @@ namespace LinkedInAPI.Controllers
             }
 
             var company = await _context.Company
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (company == null)
             {
                 return NotFound();
@@ -90,7 +90,7 @@ namespace LinkedInAPI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Name,Id")] Company company)
         {
-            if (id != company.Id)
+            if (id != company.ID)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace LinkedInAPI.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CompanyExists(company.Id))
+                    if (!CompanyExists(company.ID))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace LinkedInAPI.Controllers
             }
 
             var company = await _context.Company
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (company == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace LinkedInAPI.Controllers
 
         private bool CompanyExists(int id)
         {
-          return (_context.Company?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Company?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

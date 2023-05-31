@@ -25,7 +25,7 @@ namespace LinkedInAPI.Controllers
                 return NotFound();
             }
 
-            var obj = _jobService.FindByIdAsync(id.Value);
+            var obj = await _jobService.FindByIdAsync(id.Value);
             if (obj == null)
             {
                 return NotFound();
