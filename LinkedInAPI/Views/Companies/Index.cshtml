@@ -16,6 +16,9 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
+                Number of Jobs
+            </th>
+            <th>
 
             </th>
         </tr>
@@ -29,6 +32,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jobs.Count)
                 </td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.ID">Details</a>

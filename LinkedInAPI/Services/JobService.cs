@@ -16,7 +16,7 @@ namespace LinkedInAPI.Services
 
         public async Task<List<Job>> FindAllAsync()
         {
-            return await _context.Job.OrderBy(x => x.PostedDate).ToListAsync();
+            return await _context.Job.Include(x => x.Company).OrderBy(x => x.PostedDate).ToListAsync();
         }
 
         public async Task<Job> FindByIdAsync(int id)

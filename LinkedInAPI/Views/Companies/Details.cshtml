@@ -1,43 +1,49 @@
 ﻿@model LinkedInAPI.Models.Company
 
 @{
-    ViewData["Title"] = @Html.DisplayNameFor(model => model.Name);
+    ViewData["Title"] = Html.DisplayFor(model => model.Name);
 }
 
 <h1>@ViewData["Title"]</h1>
 
+@foreach (var item in Model.Jobs)
+{
+    <table class="table table-bordered table-striped-columns">
+        <tr>
+            <th class="col-sm-2 table-secondary">
+                @Html.DisplayNameFor(model => item.Title)
+            </th>
+            <td class="col-sm-4">
+                @Html.DisplayFor(model => item.Title)
+            </td>
+        </tr>
+        <tr>
+            <th class="col-sm-2 table-secondary">
+                @Html.DisplayNameFor(model => item.Local)
+            </th>
+            <td class="col-sm-4">
+                @Html.DisplayFor(model => item.Local)
+            </td>
+        </tr>
+        <tr>
+            <th class="col-sm-2 table-secondary">
+                @Html.DisplayNameFor(model => item.Salary)
+            </th>
+            <td class="col-sm-10">
+                @Html.DisplayFor(model => item.Salary)
+            </td>
+        </tr>
+        <tr>
+            <th class="col-sm-2 table-secondary">
+                @Html.DisplayNameFor(model => item.Benefits)    
+            </th>
+            <td class="col-sm-10">
+                @Html.DisplayFor(model => item.Benefits)
+            </td>
+        </tr>
+    </table>
+}
+
 <div>
-    <hr />
-    <dl class="d-lg-table-row">
-        @foreach (var job in Model.Jobs)
-        {
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => job.Title)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => job.Title)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => job.Local)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => job.Local)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => job.Salary)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => job.Salary)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => job.Benefits)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => job.Benefits)
-        </dd>
-        }
-    </dl>
-</div>
-<div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
 </div>
