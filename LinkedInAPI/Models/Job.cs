@@ -5,15 +5,15 @@ namespace LinkedInAPI.Models
     public class Job
     {
         public int ID { get; set; }
-        public Company Company { get; set; }
-        public string Title { get; set; }
+        public Company? Company { get; set; }
+        public string? Title { get; set; }
         public DateTime PostedDate { get; set; }
         public double Salary { get; set; }
-        public string Benefits { get; set; }
+        public string? Benefits { get; set; }
         public ApplicationStatus Status { get; set; }
-        public string Requirements { get; set; }
-        public string Local { get; set; }
-        public string Shipping { get; set; }
+        public string? Requirements { get; set; }
+        public string? Local { get; set; }
+        public string? Shipping { get; set; }
 
         public Job() { }
 

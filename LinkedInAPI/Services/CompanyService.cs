@@ -19,7 +19,7 @@ namespace LinkedInAPI.Services
             return await _context.Company.Include(x => x.Jobs).OrderBy(x => x.ID).ToListAsync();
         }
 
-        public async Task<Company> FindByIdAsync(int id)
+        public async Task<Company?> FindByIdAsync(int id)
         {
             return await _context.Company.Include(obj => obj.Jobs).FirstOrDefaultAsync(obj => obj.ID == id);
         }

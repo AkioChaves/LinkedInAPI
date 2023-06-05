@@ -42,8 +42,11 @@
             </td>
         </tr>
     </table>
+    <div>
+        <a class="btn btn-outline-primary" asp-area="" asp-controller="Jobs" asp-action="Details" asp-route-id="@item.ID">Job Detail</a>
+    </div>
+    <p></p>
 }
-
 <div>
-    <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+    <a asp-action="Index" class="btn btn-outline-warning">Back to List</a>
 </div>
