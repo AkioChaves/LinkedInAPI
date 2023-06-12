@@ -51,6 +51,7 @@ namespace LinkedInAPI.Controllers
             }
             try
             {
+                job.Status = (Models.Enums.ApplicationStatus)1;
                 await _jobService.UpdateAsync(job);
                 return RedirectToAction(nameof(Index));
             }

@@ -19,10 +19,10 @@
         </tr>
         <tr>
             <th class="col-sm-2 table-secondary">
-                @Html.DisplayNameFor(model => item.Local)
+                @Html.DisplayNameFor(model => item.Company.Location)
             </th>
             <td class="col-sm-4">
-                @Html.DisplayFor(model => item.Local)
+                @Html.DisplayFor(model => item.Company.Location)
             </td>
         </tr>
         <tr>
@@ -43,10 +43,10 @@
         </tr>
     </table>
     <div>
-        <a class="btn btn-outline-primary" asp-area="" asp-controller="Jobs" asp-action="Details" asp-route-id="@item.ID">Job Detail</a>
+        <a class="btn btn-outline-primary" asp-area="" asp-controller="Jobs" asp-action="Details" asp-route-id="@item.ID">Detalhes da Vaga</a>
     </div>
     <p></p>
 }
 <div>
-    <a asp-action="Index" class="btn btn-outline-warning">Back to List</a>
+    <a asp-action="Index" class="btn btn-outline-warning">Home Page</a>
 </div>

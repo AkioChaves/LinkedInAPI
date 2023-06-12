@@ -19,11 +19,22 @@ namespace LinkedInAPI.Controllers
             _companyService = companyService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Company != null ? 
-                          View(await _context.Company.Include(x => x.Jobs).ToListAsync()) :
-                          Problem("Entity set 'LinkedInAPIContext.Company'  is null.");
+            if (_context.Job == null)
+            {
+                return Problem("Entity set 'LinkedInAPIContext.Company'  is null.");
+            }
+
+            var jobs = from job in _context.Job
+                            select job;
+
+            if (string.IsNullOrEmpty(searchString))
+            {
+                jobs = jobs.Where(s => s.Title!.Contains(searchString));
+            }
+            return View(await _context.Company.Include(x => x.Jobs).ToListAsync());
+                          
         }
 
         public async Task<IActionResult> Details(int? id)

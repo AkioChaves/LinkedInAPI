@@ -2,8 +2,8 @@
 {
     public enum ApplicationStatus : int
     {
-        Open,
-        Sent,
-        Closed
+        Aberto,
+        Enviado,
+        Fechado
     }
 }

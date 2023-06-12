@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Job Search";
+}
+
+<h2>@ViewData["Title"]</h2>
+@using (Html.BeginForm("SimpleSearch", "Searchs", FormMethod.Get))
+{
+    <div>
+        <input type="text" name="searchString" placeholder="Pesquisar..."/>
+        <button type="submit">Buscar</button>
+    </div>
+}

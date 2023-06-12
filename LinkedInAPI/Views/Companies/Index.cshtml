@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<LinkedInAPI.Models.Company>
 
 @{
-    ViewData["Title"] = "Companies";
+    ViewData["Title"] = "Companhias";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                Number of Jobs
+                Número de Empregos
             </th>
             <th>
 
@@ -37,7 +37,7 @@
                     @Html.DisplayFor(modelItem => item.Jobs.Count)
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                    <a asp-action="Details" asp-route-id="@item.ID">Detalhes</a>
                 </td>
             </tr>
         }

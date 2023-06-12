@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<LinkedInAPI.Models.Job>
 @{
-    ViewData["Title"] = "Buscar";
+    ViewData["Title"] = "Procura de Emprego";
 }
-<div class="text-center">
-    <h1 class="display-4">Welcome to JobSearch</h1>
-</div>
+
+<h1>@ViewData["Title"]</h1>
+
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <tr class="table-secondary">
@@ -44,7 +44,7 @@
                         @Html.DisplayFor(modelItem => item.Salary)
                     </td>
                     <td>
-                        <a asp-controller="Jobs" asp-action="Details" asp-route-id="@item.ID">Detalhes</a>
+                        <a  asp-area="" asp-controller="Jobs" asp-action="Details" asp-route-id="@item.ID">Detalhes</a>
                     </td>
                 </tr>
             }

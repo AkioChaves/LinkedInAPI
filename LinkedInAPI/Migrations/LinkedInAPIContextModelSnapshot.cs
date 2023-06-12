@@ -21,15 +21,17 @@ namespace LinkedInAPI.Migrations
 
             modelBuilder.Entity("LinkedInAPI.Models.Company", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
+                    b.Property<string>("Location")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("ID");
 
                     b.ToTable("Company");
                 });
@@ -41,40 +43,35 @@ namespace LinkedInAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Benefits")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("CompanyId")
+                    b.Property<int?>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Local")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("Modality")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("PostedDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Requirements")
-                        .IsRequired()
+                    b.Property<string>("Qualifications")
                         .HasColumnType("longtext");
 
                     b.Property<double>("Salary")
                         .HasColumnType("double");
 
                     b.Property<string>("Shipping")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("CompanyId");
+                    b.HasIndex("CompanyID");
 
                     b.ToTable("Job");
                 });
@@ -83,9 +80,7 @@ namespace LinkedInAPI.Migrations
                 {
                     b.HasOne("LinkedInAPI.Models.Company", "Company")
                         .WithMany("Jobs")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CompanyID");
 
                     b.Navigation("Company");
                 });

@@ -2,8 +2,12 @@
 using Microsoft.Extensions.DependencyInjection;
 using LinkedInAPI.Data;
 using LinkedInAPI.Services;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
 builder.Services.AddDbContext<LinkedInAPIContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("LinkedInAPIContext") ?? throw new InvalidOperationException("Connection string 'LinkedInAPIContext' not found.")));
 
@@ -28,6 +32,18 @@ using (var scope = app.Services.CreateScope())
     var seedingService = services.GetRequiredService<SeedingService>();
     seedingService.Seed();
 }
+
+var supportedCultures = new CultureInfo[]
+    {
+        new CultureInfo("en-US")
+    };
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("en-US"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+});
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
